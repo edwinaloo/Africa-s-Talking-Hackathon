@@ -1,53 +1,49 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import Axios for making HTTP requests
 import Dashboard from './Dashboard';
 import DepositInstructions from './DepositInstructions';
-import SavingGoal from './SavingGoal'; // Fixed typo in component import
+import SavingGoal from './SavingGoal';
 import PaymentGatewayIntegration from './PaymentGatewayIntegration';
 import AdminLoanApproval from './AdminLoanApproval';
 import LoanApplicationForm from './LoanApplicationForm';
 import LoanDetails from './LoanDetails';
 import NavigationBar from './NavigationBar';
-import './App.css'; // Import the main CSS file
+import './App.css';
 
 function App() {
-  // Mock data for demonstration
-  const [dashboardData, setDashboardData] = useState({ accountBalance: 5000, recentTransactions: [], loanStatus: 'Pending' });
-  const [loanDetailsData, setLoanDetailsData] = useState({ amount: 10000, term: 12, purpose: 'Home Improvement', status: 'Approved', repaymentSchedule: 'Monthly' });
+  // States to store data fetched from the Django backend
+  const [dashboardData, setDashboardData] = useState({ accountBalance: 0, recentTransactions: [], loanStatus: '' });
+  const [loanDetailsData, setLoanDetailsData] = useState({ amount: 0, term: 0, purpose: '', status: '', repaymentSchedule: '' });
 
-  // Fetch data for components that require it
+  // Function to fetch dashboard data from the Django backend
+  const fetchDashboardData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/dashboard/');
+      setDashboardData(response.data);
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
+    }
+  };
+
+  // Function to fetch loan details data from the Django backend
+  const fetchLoanDetailsData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/loandetails/');
+      setLoanDetailsData(response.data);
+    } catch (error) {
+      console.error('Error fetching loan details data:', error);
+    }
+  };
+
+  // Fetch data from the Django backend when the component mounts
   useEffect(() => {
-    // Simulated API call to fetch dashboard data
-    const fetchDashboardData = async () => {
-      // Simulated response
-      const response = {
-        accountBalance: 5000,
-        recentTransactions: [], // Replace with actual data if available
-        loanStatus: 'Pending'
-      };
-      setDashboardData(response);
-    };
     fetchDashboardData();
-
-    // Simulated API call to fetch loan details data
-    const fetchLoanDetailsData = async () => {
-      // Simulated response
-      const response = {
-        amount: 10000,
-        term: 12,
-        purpose: 'Home Improvement',
-        status: 'Approved',
-        repaymentSchedule: 'Monthly'
-      };
-      setLoanDetailsData(response);
-    };
     fetchLoanDetailsData();
   }, []);
 
-  const alerts = ['New transaction', 'Loan approval'];
-
   return (
     <div className="App">
-      <NavigationBar/>
+      <NavigationBar />
       <Dashboard data={dashboardData} />
       <DepositInstructions />
       <SavingGoal />
