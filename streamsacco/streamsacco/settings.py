@@ -123,3 +123,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AFRICAS_TALKING_USERNAME = 'victor ruoya'
+AFRICAS_TALKING_API_KEY = 'ccad5755622022239f41c386fc1589bd0d155a3d7a03612694e7dca0d225b679'
