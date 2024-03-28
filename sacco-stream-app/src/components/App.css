@@ -1,0 +1,164 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dashboard-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.dashboard-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.account-balance {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.recent-transactions {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recent-transaction-item {
+  margin-bottom: 5px;
+}
+
+.loan-status {
+  font-size: 18px;
+}
+
+.deposit-instructions {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.deposit-instructions h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.deposit-instructions p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.savings-goal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.savings-goal h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.savings-goal label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.savings-goal input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.payment-gateway-integration {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-gateway-integration h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.payment-gateway-integration button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.admin-loan-approval {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-loan-approval h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.admin-loan-approval button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.loan-details {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.loan-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.loan-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+}
