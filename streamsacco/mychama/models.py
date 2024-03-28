@@ -7,6 +7,7 @@ class Member(models.Model):
     name = models.CharField(max_length=80, unique=True)
     password = models.CharField(max_length=20)
     email = models.EmailField(max_length=100, unique=True)
+    phone_number = models.CharField(max_length=15, unique=True)
     registration_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -48,13 +49,20 @@ class Transaction:
         
 
 class Loan(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+        ('disbursed', 'Disbursed'),
+        ('repaid', 'Repaid'),
+    ]
     loanID = models.UUIDField(primary_key=True)
     userID = models.ForeignKey(Member, on_delete=models.CASCADE)
     loanAmount = models.DecimalField(max_digits=10, decimal_places=2)
     interestRate = models.DecimalField(max_digits=10, decimal_places=2)
     startDate = models.DateTimeField(auto_now_add=True)
     endDate = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=20)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
         return self.status
@@ -66,7 +74,7 @@ class Loan(models.Model):
 class LoanRepayment(models.Model):
     repaymentID = models.UUIDField(primary_key=True)
     loanID = models.ForeignKey(Loan, on_delete=models.CASCADE)
-    paymentAmount = models.DecimalField(max_digit=10, decimal_places=2)
+    paymentAmount = models.DecimalField(max_digits=10, decimal_places=2)
     paymentDate = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(Loan, on_delete=models.CASCADE)
 
