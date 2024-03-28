@@ -6,6 +6,7 @@ import PaymentGatewayIntegration from './PaymentGatewayIntegration';
 import AdminLoanApproval from './AdminLoanApproval';
 import LoanApplicationForm from './LoanApplicationForm';
 import LoanDetails from './LoanDetails';
+import NavigationBar from './NavigationBar';
 import './App.css'; // Import the main CSS file
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavigationBar/>
       <Dashboard data={dashboardData} />
       <DepositInstructions />
       <SavingGoal />
