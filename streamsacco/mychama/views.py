@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from django.contrib.auth import authenticate
 
 from mychama.models import Member, Account, Transaction, Loan, LoanRepayment
-from mychama.serializers import *
+# from mychama.serializers import *
 from mychama.services import SMSService
 
 
