@@ -22,7 +22,7 @@ class MemberViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class LoginAPIView(APIView):
+class LoginAPIView(viewsets.ViewSet):
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
